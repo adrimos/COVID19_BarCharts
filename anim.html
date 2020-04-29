@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>COVID19 confirmed growth over time</title>
+    <style>
+/*
+essential styles:
+these make the slideshow work
+*/
+#slides{
+	position: relative;
+	padding: 0px;
+	margin: 0px;
+    list-style-type: none;
+}
+
+.slide{
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+    z-index: 1;
+}
+
+.showing{
+	opacity: 1;
+	z-index: 2;
+}
+
+
+.controls{
+	display: none;
+}
+
+
+/*
+non-essential styles:
+just for appearance; change whatever you want
+*/
+
+.slide{
+	font-size: 40px;
+	padding: 40px;
+	box-sizing: border-box;
+	color: #fff;
+}
+
+
+.controls{
+  background: #cccccc;
+  color: #0d0d0d;
+  border: none;
+  padding: 10px 0px;
+  font-size: 18px;
+  cursor: pointer;
+  margin: 10px 0px 0px 10px;
+  width: 50px;
+}
+
+.controls:hover,
+.controls:focus{
+  background: #a6a6a6;
+  color: #333;
+}
+
+.container{
+  width: 1200px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto 
+}
+
+.buttons{
+  top: 0px;
+  z-index: 10;
+  font-size: 0px;
+  text-align: center
+}
+    </style>
+  </head>
+  <body>
+  <div class="container">
+  <ul id="slides">
+    <li class="slide showing"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-22-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-23-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-24-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-25-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-26-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-27-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-28-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-29-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-30-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-31-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-01-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-02-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-03-2020.svg" style="width:100%"></li>
+	<li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-04-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-05-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-06-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-07-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-08-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-09-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-10-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-11-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-13-2020.svg" style="width:100%"></li>
+	<li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-13-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-14-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-15-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-16-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-17-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-18-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-19-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-20-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-21-2020.svg" style="width:100%"></li>
+	<li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-22-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-23-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-24-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-25-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-26-2020.svg" style="width:100%"></li>
+    <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-27-2020.svg" style="width:100%"></li>
+  </ul>
+  <div class="buttons">
+    <button class="controls" id="previous">&lt;</button>
+    <button class="controls" id="pause">&#10074;&#10074;</button>
+    <button class="controls" id="next">&gt;</button>
+  </div>
+</div>
+  
+
+    <script>
+var controls = document.querySelectorAll('.controls');
+for(var i=0; i<controls.length; i++){
+	controls[i].style.display = 'inline-block';
+}
+
+var slides = document.querySelectorAll('#slides .slide');
+var currentSlide = 0;
+var slideInterval = setInterval(nextSlide,500);
+
+function nextSlide(){
+	goToSlide(currentSlide+1);
+}
+
+function previousSlide(){
+	goToSlide(currentSlide-1);
+}
+
+function goToSlide(n){
+	slides[currentSlide].className = 'slide';
+	currentSlide = (n+slides.length)%slides.length;
+	slides[currentSlide].className = 'slide showing';
+}
+
+
+var playing = true;
+var pauseButton = document.getElementById('pause');
+
+function pauseSlideshow(){
+	pauseButton.innerHTML = '&#9658;'; // play character
+	playing = false;
+	clearInterval(slideInterval);
+}
+
+function playSlideshow(){
+	pauseButton.innerHTML = '&#10074;&#10074;'; // pause character
+	playing = true;
+	slideInterval = setInterval(nextSlide,500);
+}
+
+pauseButton.onclick = function(){
+	if(playing){ pauseSlideshow(); }
+	else{ playSlideshow(); }
+};
+
+var next = document.getElementById('next');
+var previous = document.getElementById('previous');
+
+next.onclick = function(){
+	pauseSlideshow();
+	nextSlide();
+};
+previous.onclick = function(){
+	pauseSlideshow();
+	previousSlide();
+};
+    </script>
+  </body>
+</html>
+
+
