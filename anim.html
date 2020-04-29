@@ -8,10 +8,14 @@ essential styles:
 these make the slideshow work
 */
 #slides{
-	position: relative;
+  position: relative;
+  max-width: 1200px;
 	padding: 0px;
 	margin: 0px;
-	list-style-type: none;
+  list-style-type: none;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .slide{
@@ -30,11 +34,9 @@ these make the slideshow work
 	z-index: 2;
 }
 
-
 .controls{
 	display: none;
 }
-
 
 /*
 non-essential styles:
@@ -47,7 +49,6 @@ just for appearance; change whatever you want
 	box-sizing: border-box;
 	color: #fff;
 }
-
 
 .controls{
   background: #cccccc;
@@ -67,23 +68,31 @@ just for appearance; change whatever you want
 }
 
 .container{
-  width: 1200px;
+  width: 100%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-
+  text-align: center;
 }
 
 .buttons{
-  text-align: center;
   top: 0px;
   z-index: 10;
   font-size: 0px;
-  align-self: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  padding-left: 2%;
 }
     </style>
   </head>
   <body>
+    <div class="buttons">
+      <button class="controls" id="previous">&lt;</button>
+      <button class="controls" id="pause">&#10074;&#10074;</button>
+      <button class="controls" id="next">&gt;</button>
+    </div>
   <div class="container">
   <ul id="slides">
     <li class="slide showing"><img src="https://adrimos.github.io/COVID19_BarCharts/images/03-22-2020.svg" style="width:100%"></li>
@@ -124,11 +133,6 @@ just for appearance; change whatever you want
     <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-26-2020.svg" style="width:100%"></li>
     <li class="slide"><img src="https://adrimos.github.io/COVID19_BarCharts/images/04-27-2020.svg" style="width:100%"></li>
   </ul>
-  <div class="buttons">
-    <button class="controls" id="previous">&lt;</button>
-    <button class="controls" id="pause">&#10074;&#10074;</button>
-    <button class="controls" id="next">&gt;</button>
-  </div>
 </div>
   
 
