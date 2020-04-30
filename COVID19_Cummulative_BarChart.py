@@ -8,7 +8,7 @@ import pandas as pd
 
 # %%
 # Load the data from the John Hopkins github repo
-df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-26-2020.csv', index_col=0)
+df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/04-28-2020.csv', index_col=0)
 
 
 # %%
@@ -66,7 +66,7 @@ fig.add_trace(go.Bar(
             cmid=15000,
             cmax=35000),
         orientation='h',
-        hovertemplate='<b>%{customdata[0]}</b> <br><b>Confirmed: %{value:,.2s}</b><br><br>Deaths: %{customdata[1]:,.2s}<extra></extra>'
+        hovertemplate='<b>%{customdata[0]}</b> <br><b>Confirmed: %{value:,.0f}</b><br><br>Deaths: %{customdata[1]:,.0f}<extra></extra>'
         ))
     
 # annotations = []
@@ -89,6 +89,7 @@ fig.add_trace(go.Bar(
     
 fig.update_layout(
         title='Cumulative confirmed cases per state and county',
+        #title='Cumulative confirmed COVID19 cases per state and county in the US<br> Apr 28, 2020',
         title_x=0.5,
         #annotations = annotations,
         paper_bgcolor='rgba(0,0,0,0)', 
@@ -101,7 +102,7 @@ fig.update_layout(
         dragmode=False,
         font=dict(
             #family=\"Times New Roman\",
-            #size=16,
+            size=8,
             color="#595959"),
         hoverlabel=dict(
                     bgcolor="white",
@@ -113,19 +114,21 @@ fig.update_layout(
         uniformtext_minsize=10, uniformtext_mode='hide',
     )
     
-fig.update_xaxes(showline=True, linewidth=0.2, side='top')
+fig.update_xaxes(showline=True, linewidth=0.2, side='top', range=(0,300000))
 fig.update_traces(texttemplate='%{customdata[0]}: %{text:.2s}', textposition='inside')
    
 fig.show()
 
 import plotly.io as pio
-pio.write_html(fig, file='Index.html', auto_open=True)    
+pio.write_html(fig, file='Index.html', auto_open=True)
+
+# import os
+
+# if not os.path.exists("images"):
+#     os.mkdir("images")
+
+# fig.write_image("images/04-28-2020.svg")
+
 
 
 # %%
-
-
-
-# %%
-
-
