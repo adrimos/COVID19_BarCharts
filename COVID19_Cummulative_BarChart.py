@@ -8,7 +8,7 @@ import pandas as pd
 
 # %%
 # Load the data from the John Hopkins github repo
-df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/05-15-2020.csv', index_col=0)
+df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/06-13-2020.csv', index_col=0)
 
 
 # %%
@@ -89,7 +89,7 @@ fig.add_trace(go.Bar(
     
 fig.update_layout(
         #title='Cumulative confirmed cases per state and county',
-        title='Cumulative confirmed COVID19 cases per state and county in the US<br> May 15, 2020',
+        title='Cumulative confirmed COVID19 cases per state and county in the US<br> June 13, 2020',
         title_x=0.5,
         #annotations = annotations,
         paper_bgcolor='rgba(0,0,0,0)', 
@@ -114,7 +114,7 @@ fig.update_layout(
         uniformtext_minsize=10, uniformtext_mode='hide',
     )
     
-fig.update_xaxes(showline=True, linewidth=0.2, side='top', range=(0,350000))
+fig.update_xaxes(showline=True, linewidth=0.2, side='top', range=(0,390000))
 fig.update_traces(texttemplate='%{customdata[0]}: %{text:.2s}', textposition='inside')
    
 fig.show()
