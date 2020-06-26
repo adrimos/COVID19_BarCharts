@@ -90,7 +90,7 @@ fig.add_trace(go.Bar(
 
 fig.update_layout(
         #title='Cumulative confirmed cases per state and county',
-        title='Cumulative confirmed COVID19 cases per state and county in the US<br> Updated:' + latest_date + '<br> Data: John Hopkins University',
+        title='Cumulative confirmed COVID19 cases per state and county in the US<br> Updated:' + latest_date,
         title_x=0.5,
         #annotations = annotations,
         paper_bgcolor='rgba(0,0,0,0)', 
