@@ -8,13 +8,12 @@ import pandas as pd
 
 # %%
 # Load the data from the John Hopkins github repo
-df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/06-13-2020.csv', index_col=0)
-
+df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/06-25-2020.csv', index_col=0)
 
 # %%
 # Dropping some columns and sorting
 
-df1 = df[["Admin2", "Province_State", "Country_Region", "Confirmed", "Deaths", "Combined_Key", "Recovered", "Active"]] #getting the columns I want
+df1 = df[["Admin2", "Province_State", "Country_Region", "Confirmed", "Deaths", "Combined_Key", "Recovered", "Active", 'Last_Update']] #getting the columns I want
 df1 = df1[df1['Confirmed'] !=0] #dropping States with 0 confirmed
 df1 = df1[(df1["Country_Region"] == "US")] #dropping countries other than the US
 df1 = df1.sort_values(by=['Province_State','Confirmed'], ascending=True) #sorting by State and then Confirmed
@@ -47,6 +46,8 @@ frames = [df1, df2]
 df3 = pd.concat(frames)
 df3.head(5)
 
+# %%
+latest_date = df1['Last_Update'].max()
 
 # %%
 import plotly.graph_objects as go
@@ -86,10 +87,10 @@ fig.add_trace(go.Bar(
 #       )
 
 # annotations.append(anno)
-    
+
 fig.update_layout(
         #title='Cumulative confirmed cases per state and county',
-        title='Cumulative confirmed COVID19 cases per state and county in the US<br> June 13, 2020',
+        title='Cumulative confirmed COVID19 cases per state and county in the US<br> Updated:' + latest_date + '<br> Data: John Hopkins University',
         title_x=0.5,
         #annotations = annotations,
         paper_bgcolor='rgba(0,0,0,0)', 
