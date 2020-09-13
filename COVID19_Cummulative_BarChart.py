@@ -8,7 +8,7 @@ import pandas as pd
 
 # %%
 # Load the data from the John Hopkins github repo
-df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/08-12-2020.csv', index_col=0)
+df = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/09-10-2020.csv', index_col=0)
 
 # %%
 # Dropping some columns and sorting
@@ -115,7 +115,7 @@ fig.update_layout(
         uniformtext_minsize=10, uniformtext_mode='hide',
     )
     
-fig.update_xaxes(showline=True, linewidth=0.2, side='top', range=(0,600000))
+fig.update_xaxes(showline=True, linewidth=0.2, side='top', range=(0,800000))
 fig.update_traces(texttemplate='%{customdata[0]}: %{text:.2s}', textposition='inside')
    
 fig.show()
